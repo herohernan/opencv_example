@@ -1,0 +1,27 @@
+<launch>  
+    <!-- USB_CAM: Active the camera -->
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+	<param name="pixel_format " type="string" value="yuyv"/> 
+	<param name="video_device  " type="string" value="/dev/video0"/>	
+    </node>
+
+    <!-- OPENCV: GrayImage -->
+    <!--node name="opencv_grayImage_hh" pkg="opencv_example" type="opencv_grayImage_hh">	
+	<remap from="/image_converter/output_video" to="/opencv/output_video/gray_image"/>
+    </node-->
+
+    <!-- OPENCV: changeContrast -->
+    <!--node name="opencv_change_contrast_hh" pkg="opencv_example" type="opencv_change_contrast_hh">
+	<remap from="/image_converter/output_video" to="/opencv/output_video/change_contrast"/>
+    </node-->
+
+    <!-- OPENCV: smoothingImages-->
+    <!--node name="opencv_smoothingImages_hh" pkg="opencv_example" type="opencv_smoothingImages_hh">
+	<remap from="/image_converter/output_video" to="/opencv/output_video/smoothing_image"/>
+    </node-->
+
+    <!-- OPENCV: houghCircleTransform-->
+    <node name="opencv_houghCircleTransform_hh" pkg="opencv_example" type="opencv_houghCircleTransform_hh"> 
+	<remap from="/image_converter/output_video" to="/opencv/output_video/circles_detected"/>
+    </node>
+</launch>
